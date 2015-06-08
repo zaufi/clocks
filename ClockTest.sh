@@ -36,7 +36,7 @@ gcc -o clocks clocks.c ${LIBRT} && ./clocks
 # benchmark clocks
 # cpp side
 echo;echo "ClockBench.cpp"
-g++ -O3 -ggdb ${LIBRT} ${RDTSCP} -o ClockBench ClockBench.cpp && ${TASKSET} ./ClockBench $*
+g++ -march=native -O3 -ggdb ${LIBRT} ${RDTSCP} ClockBench.cpp && ${TASKSET} ./ClockBench$*
 
 # java side
 rm -f SysTime.h
